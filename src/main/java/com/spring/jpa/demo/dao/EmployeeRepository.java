@@ -9,14 +9,10 @@ import java.util.List;
 /**
  * Basic interface DAO that takes all methods from JpaRepository class
  * In Generics set "@Table" class and type Primary Key
+ * <p>
+ * The spring-boot-starter-data-rest replace Controller and Service.
+ * Now URL without /api/employees -> /employees
  */
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    /**
-     * Using JpaRepository realization popular SQL queries
-     *
-     * @param name field from Table/request
-     * @return Objects with same Names
-     */
-    public List<Employee> findAllByName(String name);
 }
