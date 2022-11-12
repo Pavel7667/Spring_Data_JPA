@@ -103,4 +103,16 @@ public class MyRESTController {
         return "Object with id = " + id + " was deleted from DB";
     }
 
+    /**
+     * Using JpaRepository -> Service realization popular SQL queries
+     * For URL request like: "/name/{name}" get List of Objects
+     *
+     * @param name from URL request
+     * @return List objects/JSON with same Names
+     */
+    @GetMapping("/employees/name/{name}")
+    private List<Employee> showEmployeesByName(@PathVariable String name) {
+        return employeeService.findAllByName(name);
+    }
+
 }

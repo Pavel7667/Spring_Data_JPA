@@ -16,4 +16,12 @@ public interface EmployeeService {
     public Employee getEmployee(int id);
 
     public void deleteEmployee(int id);
+
+    /**
+     * Using JpaRepository realization popular SQL queries
+     *
+     * @param name from request
+     * @return List objects/JSON with same Names
+     */
+    public List<Employee> findAllByName(String name);
 }

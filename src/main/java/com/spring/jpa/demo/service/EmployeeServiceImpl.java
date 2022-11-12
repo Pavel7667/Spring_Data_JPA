@@ -46,7 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployee(int id) {
         Employee employeeSet = null;
         Optional<Employee> optional = employeeRepository.findById(id);
-        if (optional.isPresent()){
+        if (optional.isPresent()) {
             employeeSet = optional.get();
         }
         return employeeSet;
@@ -60,5 +60,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(int id) {
         employeeRepository.deleteById(id);
+    }
+
+    /**
+     * Using JpaRepository realization popular SQL queries
+     *
+     * @param name from request
+     * @return List objects/JSON with same Names
+     */
+    @Override
+    public List<Employee> findAllByName(String name) {
+        return employeeRepository.findAllByName(name);
     }
 }
